@@ -1,0 +1,64 @@
+// 입력값 받기
+function updateInput(inputName) {
+  const inputElement = document.querySelector(`.input_${inputName}`);
+  const contentElement = document.querySelector(`.content_${inputName}`);
+  contentElement.textContent = inputElement.value;
+}
+
+document.addEventListener('DOMContentLoaded', function() { //DOM 모두 로딩된 뒤 실행
+
+  const $btn_layout_all = document.querySelector('.btn_layout_all');
+  const $btn_layout_title = document.querySelector('.btn_layout_title');
+  const $btn_layout_ts = document.querySelector('.btn_layout_ts');
+  const $btn_layout_detail = document.querySelector('.btn_layout_detail');
+
+  const $content_title = document.querySelector('.content_title');
+  const $content_subtitle = document.querySelector('.content_subtitle');
+  const $content_detail = document.querySelector('.content_detail');
+
+  const buttons = [$btn_layout_all, $btn_layout_title, $btn_layout_ts, $btn_layout_detail];
+  
+  // 버튼 active 초기화
+  function resetButtonStyles() {
+    buttons.forEach(button => {
+      button.classList.remove('active');
+    });
+  }
+
+  // 레이아웃 선택
+  // 제목 + 부제목 + 내용
+  $btn_layout_all.addEventListener('click', function() {
+    $content_title.classList.remove('hidden');
+    $content_subtitle.classList.remove('hidden');
+    $content_detail.classList.remove('hidden');
+    resetButtonStyles();
+    this.classList.add('active')
+  });
+
+  // 제목만
+  $btn_layout_title.addEventListener('click', function() {
+    $content_title.classList.remove('hidden');
+    $content_subtitle.classList.add('hidden');
+    $content_detail.classList.add('hidden');
+    resetButtonStyles();
+    this.classList.add('active')
+  });
+
+  // 내용만
+  $btn_layout_detail.addEventListener('click', function() {
+    $content_title.classList.add('hidden');
+    $content_subtitle.classList.add('hidden');
+    $content_detail.classList.remove('hidden');
+    resetButtonStyles();
+    this.classList.add('active')
+  });
+
+  // 제목 + 부제목
+  $btn_layout_ts.addEventListener('click', function() {
+    $content_title.classList.remove('hidden');
+    $content_subtitle.classList.remove('hidden');
+    $content_detail.classList.add('hidden');
+    resetButtonStyles();
+    this.classList.add('active')
+  });
+})

@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>매거진 메이커</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div id="wrap">
+    <header>
+      <h1>Magazine Maker</h1>
+      <p>쉽고 빠른 매거진 이미지 제작</p>
+    </header>
+    <main>
+      <section class="section_image">
+        <div id="capture" class="content">
+          <p class="content_title">제목을 입력하세요</p>
+          <p class="content_subtitle">부제목을 입력하세요</p>
+          <p class="content_detail">본문을 입력하세요</p>
+          <p class="content_capyright">copyright</p>
+        </div>
+        <div class="save_reset">
+          <button>초기화</button>
+          <button>이미지 저장</button>
+        </div>
+      </section>
+      <section class="section_elements">
+        <div>
+          <input class="input_title" type="text" placeholder="제목을 입력하세요." oninput="updateInput('title')">
+          <input class="input_subtitle" type="text" placeholder="부제목을 입력하세요." oninput="updateInput('subtitle')">
+          <input class="input_detail" type="text" placeholder="본문을 입력하세요." oninput="updateInput('detail')">
+        </div>
+        <div class="ele ele_layout">
+          <p class="label">이미지 구성요소</p>
+          <div>
+            <button class="btn_layout_all">제목 + 부제목 + 내용</button>
+            <button class="btn_layout_title">제목만</button>
+            <button class="btn_layout_ts">제목 + 부제목</button>
+            <button class="btn_layout_detail">내용만</button>
+          </div>
+        </div>
+        <div class="ele ele_editor">
+          <p class="label">제작자</p>
+          <div>
+            <button class="btn_editor_m">표시</button>
+            <button class="btn_editor_um">미표시</button>
+          </div>
+        </div>
+        <div class="ele ele_textStyle">
+          <p class="label">텍스트 스타일</p>
+          <div>
+            <button class="btn_txt_shadow">텍스트 레이어</button>
+            <button class="btn_txt_color">텍스트 색상 반전</button>
+          </div>
+        </div>
+        <div class="ele ele_background">
+          <div class="label">배경</div>
+          <div>
+            <button class="btn_bg_random">랜덤 단색</button>
+            <button class="btn_bg_file">파일 업로드</button>
+            <button class="btn_bg_url">이미지 URL</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>&#169;gogogayeon</p>
+    </footer>
+  </div>
+</body>
+</html>
