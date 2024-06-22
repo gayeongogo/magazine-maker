@@ -47,9 +47,6 @@ header {
   padding: 20px 0;
 }
 main {
-  /* display: flex;
-  justify-content: space-between;
-  align-items: center; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,10 +57,22 @@ main {
 .content {
   width: 400px;
   height: 400px;
-  background-color: gray;
   padding: 20px;
   display: table-cell;
   vertical-align: bottom;
+  color: white;
+  background-image: url('cafe.jpg');
+  position: relative;
+}
+.content_before_dark::before{
+  content: "";
+  opacity: 0.4;
+  background-color: #000;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom:0px;
+  position: absolute;
 }
 .hidden {
   display: none;
@@ -71,20 +80,24 @@ main {
 .content_title {
   font-size: 32px;
   padding: 3px 0;
+  position: relative;
 }
 .content_subtitle {
   font-size: 18px;
   padding: 3px 0;
+  position: relative;
 }
 .content_detail {
   font-size: 15px;
   padding: 3px 0;
+  position: relative;
 }
-.content_capyright {
+.content_editor {
   font-size: 11px;
   font-weight: bold;
   text-align: center;
   margin-top: 7px;
+  position: relative;
 }
 .save_reset {
   margin-top: 13px;
