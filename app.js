@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() { //DOM 모두 로딩�
   const $content_editor = document.querySelector('.content_editor');
 
   const $btn_bg_layer = document.querySelector('.btn_bg_layer');
+  const $btn_txt_color = document.querySelector('.btn_txt_color');
 
   const layoutBtn = [$btn_layout_all, $btn_layout_title, $btn_layout_ts, $btn_layout_detail];
   
@@ -84,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() { //DOM 모두 로딩�
       }
     }
   })
-  
+
   //배경 레이어
   $btn_bg_layer.addEventListener('click', function() {
     if(!$content.classList.contains('content_before_dark')) {
@@ -94,5 +95,28 @@ document.addEventListener('DOMContentLoaded', function() { //DOM 모두 로딩�
       $content.classList.remove('content_before_dark')
       this.classList.remove('active');
     }
+  })
+
+  // 텍스트 그림자
+  $btn_txt_shadow.addEventListener('click', function() {
+    if(this.classList.contains('active')){
+      this.classList.remove('active');
+      $content_title.classList.remove('txt_shadow');
+      $content_subtitle.classList.remove('txt_shadow');
+      $content_detail.classList.remove('txt_shadow');
+    } else {
+      $content_title.classList.add('txt_shadow');
+      $content_subtitle.classList.add('txt_shadow');
+      $content_detail.classList.add('txt_shadow');
+      this.classList.add('active');
+    }
+  })
+
+  // 텍스트 색 반전
+  $btn_txt_color.addEventListener('click', function() {
+    $content_title.classList.toggle('txt_reverse');
+    $content_subtitle.classList.toggle('txt_reverse');
+    $content_detail.classList.toggle('txt_reverse');
+    this.classList.toggle('active');
   })
 })

@@ -99,6 +99,12 @@ main {
   margin-top: 7px;
   position: relative;
 }
+.txt_shadow{
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+.txt_reverse{
+  color: #000;
+}
 .save_reset {
   margin-top: 13px;
   text-align: center;
