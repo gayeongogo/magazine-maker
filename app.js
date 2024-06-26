@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function() { //DOM 모두 로딩�
   }
   $btn_bg_random.addEventListener('click', function() {
     const hex = randomRGB();
-    $content.style.backgroundImage = ``; 
+    $content.style.backgroundImage = 'none';
     $content.style.backgroundColor = `#${hex}`;
     resetBgBtnAct();
     this.classList.add('active');
@@ -222,8 +222,7 @@ document.addEventListener('DOMContentLoaded', function() { //DOM 모두 로딩�
     $content_subtitle.textContent = '부제목을 입력하세요';
     $content_detail.textContent = '본문을 입력하세요';
     // 배경 색상 및 이미지 초기화
-    $content.style.backgroundImage = null;
-    $content.style.backgroundColor = 'gray';
+    $content.style.backgroundImage = `url('https://images.unsplash.com/photo-1518156677180-95a2893f3e9f?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`;
     $content.classList.remove('content_before_dark')
   }) 
 })

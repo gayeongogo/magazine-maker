@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  background-color: skyblue;
+  background-color: #2E3235;
 }
 button {
   all: unset;
@@ -15,16 +15,17 @@ button {
   height: 40px;
   padding: 0 20px;
   border-radius: 100px;
+  transition: 0.2s ease;
 }
 .active {
   color: white;
-  background-color: #2994E1;
+  background-color: #2E3235;
 }
 
 button:hover {
   color: white;
-  background-color: #2994E1;
-  transition: 0.3s;
+  background-color: #2E3235;
+  transition: 0.2s ease;
 }
 input {
   border: none;
@@ -34,6 +35,9 @@ input {
   border-radius: 10px;
   font-size: 16px;
   padding: 0 10px ;
+}
+input:focus {
+  border: 1px solid #2E3235;
 }
 #wrap {
   margin: 0 auto;
@@ -61,7 +65,7 @@ main {
   display: table-cell;
   vertical-align: bottom;
   color: white;
-  background-color: gray;
+  background-image: url('https://images.unsplash.com/photo-1518156677180-95a2893f3e9f?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -111,6 +115,10 @@ main {
 .save_reset {
   margin-top: 13px;
   text-align: center;
+}
+.input_area{
+  text-align: center;
+  margin-bottom: 17px;
 }
 .ele {
   padding: 10px 0;
