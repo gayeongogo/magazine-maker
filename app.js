@@ -25,6 +25,10 @@ document.addEventListener('DOMContentLoaded', function() { //DOM 모두 로딩�
   const $btn_bg_layer = document.querySelector('.btn_bg_layer');
   const $btn_txt_color = document.querySelector('.btn_txt_color');
 
+  const $btn_bg_random = document.querySelector('.btn_bg_random');
+  const $btn_bg_file = document.querySelector('.btn_bg_file');
+  const $btn_bg_url = document.querySelector('.btn_bg_url');
+  
   const layoutBtn = [$btn_layout_all, $btn_layout_title, $btn_layout_ts, $btn_layout_detail];
   
   // 레이아웃 버튼 active 초기화
@@ -118,5 +122,65 @@ document.addEventListener('DOMContentLoaded', function() { //DOM 모두 로딩�
     $content_subtitle.classList.toggle('txt_reverse');
     $content_detail.classList.toggle('txt_reverse');
     this.classList.toggle('active');
+  })
+
+  const bgBtn = [$btn_bg_random, $btn_bg_file,  $btn_bg_url]
+
+
+  // 배경 버튼 active 초기화
+  function resetBgBtnAct() {
+    bgBtn.forEach(button => {
+      button.classList.remove('active');
+    });
+  }
+
+  // 랜덤 단색
+  // 150 ~ 240 사이의 rgb를 hex 코드로 변환
+  const randomRGB = () => {
+    let rgb = '';
+    rgb += (Math.floor(Math.random() * 90 + 1)+150).toString(16).padStart(2, '0');
+    rgb += (Math.floor(Math.random() * 90 + 1)+150).toString(16).padStart(2, '0');
+    rgb += (Math.floor(Math.random() * 90 + 1)+150).toString(16).padStart(2, '0');
+    return rgb; 
+  }
+  $btn_bg_random.addEventListener('click', function() {
+    const hex = randomRGB();
+    $content.style.backgroundImage = ``; 
+    $content.style.backgroundColor = `#${hex}`;
+    resetBgBtnAct();
+    this.classList.add('active');
+  })
+
+  //파일 업로드
+  const $file = document.querySelector('#file')
+  $file.addEventListener('change', function(e) {
+    console.log(e.target.files);
+    let get_file = e.target.files[0];
+    let reader = new FileReader();
+    if (get_file) {
+      reader.readAsDataURL(get_file);
+      reader.onload = function(){ //  파일 로드 됐을 때
+        $content.style.backgroundImage = `url('${reader.result}')`;
+        resetBgBtnAct();
+        $btn_bg_file.classList.add('active');
+      }
+    } else {
+      return;
+    }
+  })
+  $btn_bg_file.addEventListener('click', function(e) {
+    e.preventDefault;
+    $file.click()
+  })
+
+  //이미지 URL
+  $btn_bg_url.addEventListener('click', function() {
+    const urlPrompt = prompt('넣고싶은 이미지 URL을 입력하세요');
+    //prompt취소버튼
+    if (urlPrompt !== null && urlPrompt.trim() !== "") {
+      $content.style.backgroundImage = `url('${urlPrompt}')`
+      resetBgBtnAct();
+      this.classList.add('active');
+    }
   })
 })
