@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded', function() { //DOM 모두 로딩�
   const $btn_bg_url = document.querySelector('.btn_bg_url');
 
   const $btn_reset = document.querySelector('.btn_reset');
+  const $btn_save = document.querySelector('.btn_save');
   
   const allBtn = [$btn_layout_all, $btn_layout_title, $btn_layout_ts, $btn_layout_detail, $btn_editor_m, $btn_txt_shadow, $btn_bg_layer, $btn_txt_color,$btn_bg_random, $btn_bg_file, $btn_bg_url]
-  
   const layoutBtn = [$btn_layout_all, $btn_layout_title, $btn_layout_ts, $btn_layout_detail];
 
   // 입력값 받기
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() { //DOM 모두 로딩�
     const contentElement = document.querySelector(`.content_${inputName}`);
     contentElement.textContent = inputElement.value;
   }
-  
+
   // 모든 버튼 초기화
   function resetAllBtnAct() {
     allBtn.forEach(button => {
@@ -221,6 +221,26 @@ document.addEventListener('DOMContentLoaded', function() { //DOM 모두 로딩�
     $content_editor.style.display = 'none';
     // 배경 색상 및 이미지 초기화
     $content.style.backgroundImage = `url('https://images.unsplash.com/photo-1518156677180-95a2893f3e9f?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`;
+    $content.style.backgroundColor = `none`;
     $content.classList.remove('content_before_dark');
   }) 
+
+  // 이미지화 및 저장
+  $btn_save.addEventListener('click', () => {
+    html2canvas($content,{
+      allowTaint: true,
+      useCORS: true,
+    }).then(canvas => {
+      saveImg(canvas.toDataURL('image/jpg'), 'image.jpg');
+    });
+  });
+
+  const saveImg = (uri, filename) => {
+    let link = document.createElement('a');
+    document.body.appendChild(link);
+    link.href = uri;
+    link.download = filename;
+    link.click();
+    document.body.removeChild(link);
+  };
 })
