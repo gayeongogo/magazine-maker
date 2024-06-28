@@ -33,11 +33,7 @@ document.addEventListener('DOMContentLoaded', function() { //DOM 모두 로딩�
     const contentElement = document.querySelector(`.content_${inputName}`);
     contentElement.textContent = inputElement.value;
   }
-  // 입력값 초기화
-  /* window.resetInputs = function() {
-    
-  } */
-
+  
   // 모든 버튼 초기화
   function resetAllBtnAct() {
     allBtn.forEach(button => {
@@ -96,12 +92,12 @@ document.addEventListener('DOMContentLoaded', function() { //DOM 모두 로딩�
   $btn_editor_m.addEventListener('click', function() {
     if (this.classList.contains('active')) {
       this.classList.remove('active');
-      $content_editor.classList.add('hidden');
+      $content_editor.style.display = 'none';
     } else {
       const editorPrompt = prompt('제작자를 입력하세요');
       if (editorPrompt) {
         this.classList.add('active');
-        $content_editor.classList.remove('hidden');
+        $content_editor.style.display = 'block'
         $content_editor.textContent = editorPrompt;
       }
     }
@@ -216,13 +212,15 @@ document.addEventListener('DOMContentLoaded', function() { //DOM 모두 로딩�
       const inputElement = document.querySelector(`.input_${inputName}`);
       const contentElement = document.querySelector(`.content_${inputName}`);
       inputElement.value = '';
-      contentElement.classList.remove('txt_shadow', 'txt_reverse')
+      contentElement.classList.remove('txt_shadow', 'txt_reverse');
     })
     $content_title.textContent = '제목을 입력하세요';
     $content_subtitle.textContent = '부제목을 입력하세요';
     $content_detail.textContent = '본문을 입력하세요';
+    $content_editor.textContent = '';
+    $content_editor.style.display = 'none';
     // 배경 색상 및 이미지 초기화
     $content.style.backgroundImage = `url('https://images.unsplash.com/photo-1518156677180-95a2893f3e9f?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`;
-    $content.classList.remove('content_before_dark')
+    $content.classList.remove('content_before_dark');
   }) 
 })
