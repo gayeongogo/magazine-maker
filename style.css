@@ -79,9 +79,9 @@ main {
   margin-bottom: 30px;
 }
 .content {
-  width: 400px;
-  height: 400px;
-  padding: 20px;
+  width: 500px;
+  height: 500px;
+  padding: 45px 25px;
   display: table-cell;
   vertical-align: bottom;
   color: white;
@@ -105,26 +105,27 @@ main {
   display: none;
 }
 .content_title {
-  font-size: 32px;
-  padding: 3px 0;
+  font-size: 45px;
+  padding-bottom: 10px;
   position: relative;
+  font-weight: bold;
 }
 .content_subtitle {
-  font-size: 18px;
-  padding: 3px 0;
+  font-size: 28px;
+  padding-bottom: 25px;
   position: relative;
 }
 .content_detail {
-  font-size: 15px;
-  padding: 3px 0;
+  font-size: 21px;
   position: relative;
+  line-height: 140%;
 }
 .content_editor {
   display: none;
-  font-size: 11px;
+  font-size: 18px;
   font-weight: bold;
   text-align: center;
-  margin-top: 7px;
+  margin-top: 21px;
   position: relative;
 }
 .txt_shadow{
