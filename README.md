@@ -3,6 +3,7 @@
 <br>
 
 📅2024.04 - 2024.05
+<br>
 🔗https://gayeongogo.github.io/magazine-maker/
 
 `HTML` `Javascript` `styled-components`
