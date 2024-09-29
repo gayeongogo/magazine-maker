@@ -4,7 +4,7 @@
 
 📅2024.04 - 2024.05
 
-`React.js` `styled-components` `firebase`
+`HTML` `Javascript` `styled-components`
 
 <br>
 
